@@ -110,20 +110,38 @@
       flex-wrap: wrap;
     }
 
+    /* === CIRCULAR IMAGE STYLING START === */
     .hero-img {
       flex: 1 1 45%;
       max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .hero-img img {
-      width: 100%;
-      height: auto;
-      border-radius: 30px;
-      opacity: 0;
-      transform: scale(0.85);
-      animation: fadeZoom 1.2s ease-out forwards, glowBorder 1.5s ease-in-out infinite alternate;
-      animation-delay: 0.5s;
+    .circle-frame {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6EB3A5, #DD88CF);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: visible;
+      box-shadow: 0 0 30px rgba(110, 179, 165, 0.4);
     }
+
+    .circle-frame img {
+      width: 360px;
+      height: auto;
+      position: absolute;
+      bottom: -10px;
+      right: -20px;
+      border-radius: 20px;
+      animation: fadeZoom 1.2s ease-out forwards, glowBorder 1.5s ease-in-out infinite alternate;
+    }
+    /* === CIRCULAR IMAGE STYLING END === */
 
     .hero-content {
       flex: 1 1 50%;
@@ -177,14 +195,12 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, background 0.3s ease;
     }
-    .projects-grid a {
-  text-decoration: none;
-  color: inherit;
-}
 
-.projects-grid a .project-card {
-  color: white; /* Ensures text stays white */
-}
+    .projects-grid a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .skill-card:hover img {
       animation: iconDance 0.6s infinite;
     }
@@ -270,9 +286,15 @@
         text-align: center;
       }
 
-      .hero-img, .hero-content {
-        flex: 1 1 100%;
-        max-width: 100%;
+      .circle-frame {
+        width: 240px;
+        height: 240px;
+      }
+
+      .circle-frame img {
+        width: 270px;
+        right: -10px;
+        bottom: -5px;
       }
 
       .hero-content h1 {
@@ -288,33 +310,11 @@
         font-size: 2.2rem;
       }
 
-      .skills-grid, .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 16px;
-      }
-
       .contact-icons {
         flex-wrap: wrap;
         gap: 30px;
         font-size: 40px;
         margin-top: 40px;
-      }
-
-      .button {
-        font-size: 1.1rem;
-        padding: 12px 24px;
-        text-decoration: none;
-      }
-
-      form input, form textarea {
-        font-size: 0.95rem;
-        padding: 8px;
-      }
-
-      .hero-img img {
-        border-radius: 20px;
-        max-width: 90%;
-        margin: auto;
       }
     }
   </style>
@@ -327,13 +327,15 @@
 
 <div id="loader">
   <div class="loader-dots">
-    <span></span><span>
+    <span></span><span></span><span></span>
   </div>
 </div>
 
 <section class="hero">
   <div class="hero-img">
-    <img src="res.png" alt="Sourav Singh" />
+    <div class="circle-frame">
+      <img src="res.png" alt="Sourav Singh" />
+    </div>
   </div>
   <div class="hero-content">
     <h1>Sourav Singh</h1>
@@ -346,31 +348,31 @@
 <section class="section skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="skills-grid">
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" /><p>HTML</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="50"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" /><p>CSS</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /><p>JavaScript</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /><p>Bootstrap</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><img src="https://img.icons8.com/?size=512&id=WoopfRcDj3RF&format=png" alt="Tailwind" /><p>Tailwind</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="250"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" /><p>MongoDB</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="300"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" /><p>Express</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="350"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /><p>React</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="400"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" /><p>Node.js</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="450"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" /><p>Next.js</p></div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="500"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /><p>Git</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><p>HTML</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><p>CSS</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><p>JavaScript</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"><p>Bootstrap</p></div>
+    <div class="skill-card"><img src="https://img.icons8.com/?size=512&id=WoopfRcDj3RF&format=png"><p>Tailwind</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"><p>MongoDB</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"><p>Express</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><p>React</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"><p>Node.js</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"><p>Next.js</p></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><p>Git</p></div>
   </div>
 </section>
 
 <section class="section projects" data-aos="fade-up">
   <h2>Projects</h2>
   <div class="projects-grid">
-  <a href="https://usersourav.github.io/Knight-s-Quest/">  <div class="project-card"><h3>Knights Quest</h3><p>Knights Quest is a thrilling action-adventure game where you take on the role of a brave knight. Your mission is to collect scattered coins and overcome fierce enemies as you make your way to the final destination. Can you survive the trials and claim your glory?</p></div></a>
-   <a href="https://automata-passkey.vercel.app/"> <div class="project-card"><h3>DeterminSecure</h3><p>DeterminSecure is a web-based password strength checker that uses Deterministic Finite Automata (DFA) to visualize how passwords transition through security states. It bridges automata theory with real-world cybersecurity in an interactive, educational way.</p></div></a>
+    <a href="https://usersourav.github.io/Knight-s-Quest/"><div class="project-card"><h3>Knights Quest</h3><p>Action-adventure game collecting coins and defeating enemies.</p></div></a>
+    <a href="https://automata-passkey.vercel.app/"><div class="project-card"><h3>DeterminSecure</h3><p>DFA-based password strength visualizer.</p></div></a>
   </div>
 </section>
 
 <section class="contact-details" data-aos="fade-up">
   <h1>Contact</h1>
-  <div class="contact-icons" data-aos="zoom-in">
+  <div class="contact-icons">
     <a href="mailto:ss6015@srmist.edu.in"><i class='bx bxs-envelope'></i></a>
     <a href="https://www.linkedin.com/in/usersourav" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
     <a href="https://github.com/Usersourav" target="_blank"><i class='bx bxl-github'></i></a>
@@ -389,7 +391,6 @@
   </form>
 </section>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 600, once: true });
@@ -405,6 +406,3 @@
 
 </body>
 </html>
-
-
-
