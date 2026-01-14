@@ -110,7 +110,7 @@
       flex-wrap: wrap;
     }
 
-    /* === CIRCULAR IMAGE STYLING START === */
+    /* === FIXED CIRCULAR IMAGE STYLING === */
     .hero-img {
       flex: 1 1 45%;
       max-width: 500px;
@@ -124,24 +124,23 @@
       height: 320px;
       border-radius: 50%;
       background: linear-gradient(135deg, #6EB3A5, #DD88CF);
+      position: relative;
+      overflow: hidden; /* IMPORTANT: clip image */
+      box-shadow: 0 0 30px rgba(110, 179, 165, 0.4);
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      overflow: visible;
-      box-shadow: 0 0 30px rgba(110, 179, 165, 0.4);
     }
 
     .circle-frame img {
-      width: 360px;
-      height: auto;
-      position: absolute;
-      bottom: -10px;
-      right: -20px;
-      border-radius: 20px;
-      animation: fadeZoom 1.2s ease-out forwards, glowBorder 1.5s ease-in-out infinite alternate;
+      width: 100%;
+      height: 120%;
+      object-fit: cover;              /* CRITICAL */
+      object-position: center top;    /* keeps face centered */
+      transform: translateY(10px);    /* fine-tune vertical position */
+      animation: fadeZoom 1.2s ease-out forwards;
     }
-    /* === CIRCULAR IMAGE STYLING END === */
+    /* === END IMAGE FIX === */
 
     .hero-content {
       flex: 1 1 50%;
@@ -292,9 +291,8 @@
       }
 
       .circle-frame img {
-        width: 270px;
-        right: -10px;
-        bottom: -5px;
+        height: 120%;
+        transform: translateY(8px);
       }
 
       .hero-content h1 {
@@ -365,8 +363,13 @@
 <section class="section projects" data-aos="fade-up">
   <h2>Projects</h2>
   <div class="projects-grid">
-    <a href="https://usersourav.github.io/Knight-s-Quest/"><div class="project-card"><h3>Knights Quest</h3><p>Action-adventure game collecting coins and defeating enemies.</p></div></a>
-    <a href="https://automata-passkey.vercel.app/"><div class="project-card"><h3>DeterminSecure</h3><p>DFA-based password strength visualizer.</p></div></a>
+     <a href="https://automata-passkey.vercel.app/">
+      <div class="project-card"><h3>DeterminSecure</h3><p>DFA-based password strength visualizer.</p></div>
+    </a>
+    <a href="https://usersourav.github.io/Knight-s-Quest/">
+      <div class="project-card"><h3>Knights Quest</h3><p>Action-adventure game collecting coins and defeating enemies.</p></div>
+    </a>
+   
   </div>
 </section>
 
