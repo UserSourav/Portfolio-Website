@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sourav Singh | CS Engineer & Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Satoshi:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
   <style>
@@ -19,9 +19,10 @@
       --faint:   #B0A89A;
       --accent:  #2D5BE3;
       --accent2: #E3602D;
+      --green:   #27C47A;
       --border:  rgba(24,19,12,0.09);
       --serif:   'Instrument Serif', Georgia, serif;
-      --sans:    'Satoshi', sans-serif;
+      --sans:    'DM Sans', sans-serif;
       --mono:    'Space Mono', monospace;
     }
 
@@ -34,7 +35,7 @@
       cursor: none;
     }
 
-    /* CURSOR */
+    /* ── CURSOR ── */
     .cursor {
       position: fixed; width: 8px; height: 8px;
       background: var(--accent); border-radius: 50%;
@@ -49,17 +50,17 @@
       pointer-events: none; z-index: 99998;
       transform: translate(-50%,-50%);
       transition: width .35s, height .35s, opacity .3s;
-      opacity: 0.5;
+      opacity: .5;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       padding: 24px 60px;
       display: flex; align-items: center; justify-content: space-between;
       z-index: 500;
-      background: rgba(247,244,238,0.88);
-      backdrop-filter: blur(16px);
+      background: rgba(247,244,238,0.9);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
@@ -78,30 +79,25 @@
     }
     .nav-links a:hover { color: var(--accent); }
     .nav-cta {
-      padding: 9px 22px;
-      border: 1.5px solid var(--ink);
+      padding: 9px 22px; border: 1.5px solid var(--ink);
       color: var(--ink) !important;
       transition: background .2s, border-color .2s, color .2s !important;
     }
-    .nav-cta:hover {
-      background: var(--accent) !important;
-      border-color: var(--accent) !important;
-      color: #fff !important;
-    }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
 
     @keyframes up {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: none; }
     }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero-outer { max-width: 1340px; margin: 0 auto; }
     .hero {
       min-height: 100vh;
       padding: 140px 60px 80px;
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 64px;
+      grid-template-columns: 1fr 480px;
+      gap: 60px;
       align-items: center;
     }
 
@@ -120,7 +116,7 @@
 
     .hero-name {
       font-family: var(--serif);
-      font-size: clamp(4.5rem, 9vw, 9.5rem);
+      font-size: clamp(4rem, 8.5vw, 9rem);
       font-weight: 400; line-height: .9;
       letter-spacing: -.03em;
       opacity: 0; animation: up .8s .85s ease forwards;
@@ -137,64 +133,110 @@
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
     .btn-solid {
-      padding: 13px 32px;
-      background: var(--accent); color: #fff;
+      padding: 13px 32px; background: var(--accent); color: #fff;
       font-family: var(--mono); font-size: .7rem; letter-spacing: .12em;
       text-transform: uppercase; text-decoration: none;
       transition: opacity .2s, transform .2s;
       display: inline-flex; align-items: center; gap: 8px;
     }
     .btn-solid:hover { opacity: .85; transform: translateY(-2px); }
-
     .btn-line {
-      padding: 13px 32px;
-      background: transparent; color: var(--ink);
+      padding: 13px 32px; background: transparent; color: var(--ink);
       font-family: var(--mono); font-size: .7rem; letter-spacing: .12em;
       text-transform: uppercase; text-decoration: none;
       border: 1.5px solid var(--border);
-      transition: border-color .2s, color .2s;
-      display: inline-block;
+      transition: border-color .2s, color .2s; display: inline-block;
     }
     .btn-line:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Hero image — animated spinning conic border */
-    .hero-img-wrap {
-      position: relative;
+    /* ──────────────────────────────────────────
+       TERMINAL WIDGET (hero right column)
+    ────────────────────────────────────────── */
+    .terminal-wrap {
       opacity: 0; animation: up .9s 1.2s ease forwards;
+      position: relative;
     }
-    .hero-glow-border {
-      position: absolute; inset: -2px;
-      border-radius: 3px;
-      background: conic-gradient(from 0deg, var(--accent) 0deg, transparent 60deg, transparent 300deg, var(--accent) 360deg);
-      animation: spin-glow 3s linear infinite;
+
+    /* outer glow ring — spinning */
+    .terminal-glow {
+      position: absolute; inset: -3px; border-radius: 10px;
+      background: conic-gradient(
+        from 0deg,
+        var(--accent) 0deg, rgba(45,91,227,0.15) 90deg,
+        transparent 180deg, rgba(45,91,227,0.15) 270deg,
+        var(--accent) 360deg
+      );
+      animation: spin-glow 4s linear infinite;
       z-index: 0;
     }
-    @keyframes spin-glow {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    .hero-img-inner {
-      position: relative; z-index: 1; margin: 2px;
-      overflow: hidden; background: var(--bg2);
-    }
-    .hero-img-inner img {
-  width: 100%;
-  max-height: 600px;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 3/4;
-  filter: grayscale(15%);
-  transition: transform .5s, filter .4s;
-}
-    .hero-img-wrap:hover .hero-img-inner img { transform: scale(1.04); filter: grayscale(0%); }
+    @keyframes spin-glow { to { transform: rotate(360deg); } }
 
-    .hero-badge {
-      position: absolute; bottom: 20px; left: 20px; z-index: 2;
-      background: rgba(247,244,238,0.94); backdrop-filter: blur(10px);
-      padding: 12px 18px;
+    .terminal {
+      position: relative; z-index: 1;
+      background: #0F1117;
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: var(--mono);
     }
-    .badge-l1 { font-family: var(--mono); font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-    .badge-l2 { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--ink); margin-top: 2px; }
+
+    /* title bar */
+    .term-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 18px;
+      background: #1A1D27;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .term-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .term-dot.r { background: #FF5F57; }
+    .term-dot.y { background: #FFBD2E; }
+    .term-dot.g { background: #27C93F; }
+    .term-title {
+      flex: 1; text-align: center;
+      font-size: .65rem; letter-spacing: .14em;
+      color: rgba(255,255,255,.3); text-transform: uppercase;
+    }
+
+    /* body */
+    .term-body { padding: 24px 24px 28px; min-height: 320px; }
+    .term-line {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 14px; font-size: .78rem; line-height: 1.6;
+    }
+    .term-prompt { color: var(--accent); flex-shrink: 0; user-select: none; }
+    .term-cmd { color: #E8E4DC; }
+    .term-out { color: rgba(232,228,220,.5); padding-left: 20px; display: block; }
+    .term-out.green { color: var(--green); }
+    .term-out.blue  { color: #7BA7FF; }
+    .term-out.orange{ color: #F4A261; }
+    .term-cursor {
+      display: inline-block; width: 2px; height: 1em;
+      background: var(--accent); margin-left: 2px;
+      animation: blink .9s step-end infinite;
+      vertical-align: text-bottom;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Typing animation classes */
+    .typed { overflow: hidden; white-space: nowrap; width: 0; }
+    .typed.go { animation: type-in var(--dur, .8s) steps(var(--steps, 20)) var(--delay, 0s) forwards; }
+    @keyframes type-in { to { width: var(--w, 100%); } }
+
+    .fade-line { opacity: 0; }
+    .fade-line.go { animation: fade-up .4s var(--delay, 0s) ease forwards; }
+    @keyframes fade-up { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+    /* status bar at bottom */
+    .term-status {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 18px;
+      background: #1A1D27;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: .6rem; letter-spacing: .1em;
+    }
+    .term-status-left { display: flex; gap: 14px; align-items: center; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse-dot 2s ease-in-out infinite; }
+    .term-status span { color: rgba(255,255,255,.3); }
+    .term-status .branch { color: #F4A261; }
 
     /* scroll indicator */
     .scroll-ind {
@@ -213,7 +255,7 @@
     }
     @keyframes line-pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
 
-    /* MARQUEE */
+    /* ── MARQUEE ── */
     .marquee-wrap {
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       overflow: hidden; padding: 16px 0; background: var(--bg2);
@@ -233,7 +275,7 @@
     .marquee-item img { width: 20px; height: 20px; opacity: .65; }
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    /* SECTION */
+    /* ── SECTION ── */
     .sec-wrap { max-width: 1340px; margin: 0 auto; padding: 110px 60px; }
     .sec-label {
       font-family: var(--mono); font-size: .63rem; letter-spacing: .28em;
@@ -248,10 +290,10 @@
     }
     .sec-title em { font-style: italic; color: var(--accent); }
 
-    /* ABOUT */
+    /* ── ABOUT ── */
     .about-layout {
       margin-top: 56px;
-      display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center;
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: center;
     }
     .about-text { font-size: 1.05rem; line-height: 1.9; color: var(--mid); }
     .about-text strong { color: var(--ink); }
@@ -263,25 +305,98 @@
     }
     .about-link:hover { gap: 18px; }
 
-    /* About image with orange spinning border */
-    .about-img-wrap { position: relative; }
-    .about-glow-border {
-      position: absolute; inset: -2px; border-radius: 3px;
-      background: conic-gradient(from 0deg, var(--accent2) 0deg, transparent 80deg, transparent 280deg, var(--accent2) 360deg);
-      animation: spin-glow2 5s linear infinite; z-index: 0;
-    }
-    @keyframes spin-glow2 { to { transform: rotate(360deg); } }
-    .about-img-box {
-      position: relative; z-index: 1; margin: 2px; overflow: hidden;
-      background: var(--bg2);
-    }
-    .about-img-box .avatar {
-      width: 100%; aspect-ratio: 1;
-      background: linear-gradient(140deg, #D8D2C8, #C4BEB6);
+    /* ──────────────────────────────────────────
+       ORBIT WIDGET (about right column)
+    ────────────────────────────────────────── */
+    .orbit-wrap {
+      position: relative; width: 100%; aspect-ratio: 1;
       display: flex; align-items: center; justify-content: center;
     }
 
-    /* WORK — dark bg */
+    /* central card */
+    .orbit-center {
+      position: relative; z-index: 10;
+      width: 140px; height: 140px;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px;
+      box-shadow: 0 0 0 1px rgba(45,91,227,.4), 0 0 40px rgba(45,91,227,.15);
+    }
+    .orbit-center-num {
+      font-family: var(--serif); font-size: 2.8rem; font-style: italic;
+      color: var(--accent); line-height: 1;
+    }
+    .orbit-center-label {
+      font-family: var(--mono); font-size: .55rem; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(247,244,238,.4);
+    }
+
+    /* rings */
+    .orbit-ring {
+      position: absolute; border-radius: 50%;
+      border: 1px dashed var(--border);
+    }
+    .orbit-ring-1 { width: 62%; height: 62%; animation: ring-spin 18s linear infinite; }
+    .orbit-ring-2 { width: 90%; height: 90%; animation: ring-spin 28s linear infinite reverse; }
+    @keyframes ring-spin { to { transform: rotate(360deg); } }
+
+    /* tech nodes — positioned on ring-1 */
+    .orbit-node {
+      position: absolute; top: 50%; left: 50%;
+      width: 48px; height: 48px;
+      margin: -24px 0 0 -24px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      /* counter-rotate so icon stays upright */
+      animation: node-counter 18s linear infinite;
+      transition: box-shadow .3s, border-color .3s;
+    }
+    .orbit-node:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(45,91,227,.2); }
+    @keyframes node-counter { to { transform: rotate(-360deg); } }
+
+    .orbit-node img { width: 24px; height: 24px; }
+
+    /* position each node on the ring by rotate-translate-rotate trick */
+    /* ring-1 radius ~31% of orbit-wrap width → roughly 155px for 500px wrap */
+    .orbit-ring-1 .orbit-node:nth-child(1) { transform: rotate(0deg)   translateX(var(--r1)) rotate(0deg); }
+    .orbit-ring-1 .orbit-node:nth-child(2) { transform: rotate(72deg)  translateX(var(--r1)) rotate(-72deg); }
+    .orbit-ring-1 .orbit-node:nth-child(3) { transform: rotate(144deg) translateX(var(--r1)) rotate(-144deg); }
+    .orbit-ring-1 .orbit-node:nth-child(4) { transform: rotate(216deg) translateX(var(--r1)) rotate(-216deg); }
+    .orbit-ring-1 .orbit-node:nth-child(5) { transform: rotate(288deg) translateX(var(--r1)) rotate(-288deg); }
+    .orbit-ring-1 { --r1: calc(31% + 0px); }
+
+    /* The animation spin+counter-spin is applied via JS dynamically */
+    /* simpler: just keyframe everything together */
+
+    /* outer ring nodes — 6 nodes */
+    .orbit-ring-2 .orbit-node { animation-duration: 28s; animation-direction: normal; }
+    @keyframes node-counter2 { to { transform: rotate(360deg); } }
+    .orbit-ring-2 .orbit-node { animation-name: node-counter2; }
+
+    .orbit-ring-2 .orbit-node:nth-child(1) { transform: rotate(0deg)   translateX(var(--r2)); }
+    .orbit-ring-2 .orbit-node:nth-child(2) { transform: rotate(60deg)  translateX(var(--r2)); }
+    .orbit-ring-2 .orbit-node:nth-child(3) { transform: rotate(120deg) translateX(var(--r2)); }
+    .orbit-ring-2 .orbit-node:nth-child(4) { transform: rotate(180deg) translateX(var(--r2)); }
+    .orbit-ring-2 .orbit-node:nth-child(5) { transform: rotate(240deg) translateX(var(--r2)); }
+    .orbit-ring-2 .orbit-node:nth-child(6) { transform: rotate(300deg) translateX(var(--r2)); }
+    .orbit-ring-2 { --r2: calc(45% + 0px); }
+
+    /* pulse glow from center */
+    .orbit-pulse {
+      position: absolute; width: 130px; height: 130px;
+      border-radius: 50%; z-index: 5;
+      background: radial-gradient(circle, rgba(45,91,227,.2) 0%, transparent 70%);
+      animation: pulse-expand 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-expand {
+      0%  { transform: scale(1);   opacity: .8; }
+      50% { transform: scale(1.8); opacity: 0; }
+      100%{ transform: scale(1);   opacity: 0; }
+    }
+
+    /* ── WORK ── */
     .work-bg { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.05); }
     .work-bg .sec-wrap { max-width: 1340px; }
     .work-bg .sec-label { color: #7BA7FF; }
@@ -289,28 +404,21 @@
     .work-bg .sec-title { color: #F7F4EE; }
     .work-bg .sec-title em { color: #7BA7FF; }
 
-    .work-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 24px; flex-wrap: wrap;
-    }
+    .work-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
     .work-sub { font-size: .93rem; color: rgba(247,244,238,.4); max-width: 300px; line-height: 1.7; }
 
     .work-list { margin-top: 60px; display: flex; flex-direction: column; gap: 3px; }
 
-    /* Each card is a wrapper that holds the spinning border + inner */
     .work-card-wrap {
       position: relative; text-decoration: none; color: #F7F4EE; display: block;
     }
-    /* The spinning border element */
     .work-card-wrap .spin-border {
       position: absolute; inset: 0; border-radius: 2px; overflow: hidden;
-      pointer-events: none; z-index: 0; opacity: 0;
-      transition: opacity .4s;
+      pointer-events: none; z-index: 0; opacity: 0; transition: opacity .4s;
     }
     .work-card-wrap .spin-border::after {
       content: '';
-      position: absolute;
-      top: 50%; left: 50%;
+      position: absolute; top: 50%; left: 50%;
       width: 200%; height: 200%;
       transform: translate(-50%,-50%) rotate(0deg);
       background: conic-gradient(transparent 0deg, #7BA7FF 60deg, transparent 120deg);
@@ -318,35 +426,22 @@
     }
     @keyframes spin-card { to { transform: translate(-50%,-50%) rotate(360deg); } }
     .work-card-wrap:hover .spin-border { opacity: 1; }
-
-    /* pseudo inset mask so only border shows, not fill */
     .work-card-wrap .spin-border-mask {
       position: absolute; inset: 2px; background: #141414; z-index: 1; border-radius: 1px;
     }
-
     .work-card-inner {
-      position: relative; z-index: 2;
-      background: #141414;
+      position: relative; z-index: 2; background: #141414;
       padding: 40px 44px;
       display: grid; grid-template-columns: 64px 1fr auto;
       gap: 36px; align-items: center;
       border: 1px solid rgba(255,255,255,0.05);
       transition: background .3s, border-color .4s;
     }
-    .work-card-wrap:hover .work-card-inner {
-      background: #191919;
-      border-color: transparent;
-    }
+    .work-card-wrap:hover .work-card-inner { background: #191919; border-color: transparent; }
 
-    .work-num {
-      font-family: var(--serif); font-size: 1.1rem; font-style: italic;
-      color: rgba(247,244,238,.18); font-weight: 400;
-    }
+    .work-num { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: rgba(247,244,238,.18); }
     .work-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .work-tag {
-      font-family: var(--mono); font-size: .6rem; letter-spacing: .18em;
-      text-transform: uppercase; color: #7BA7FF;
-    }
+    .work-tag { font-family: var(--mono); font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: #7BA7FF; }
     .work-sep { font-size: .6rem; color: rgba(247,244,238,.2); }
     .work-year { font-family: var(--mono); font-size: .6rem; color: rgba(247,244,238,.3); }
     .work-title {
@@ -365,109 +460,82 @@
     }
     .work-card-wrap:hover .work-cta { gap: 14px; }
 
-    /* CERTS */
+    /* ── CERTS ── */
     .cert-section { border-top: 1px solid var(--border); }
-    .certs-grid {
-      margin-top: 56px;
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
-      gap: 3px;
-    }
+    .certs-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fill,minmax(400px,1fr)); gap: 3px; }
 
-    .cert-card-wrap {
-      position: relative; text-decoration: none; color: var(--ink); display: block;
-    }
+    .cert-card-wrap { position: relative; text-decoration: none; color: var(--ink); display: block; }
     .cert-card-wrap .spin-border {
       position: absolute; inset: 0; border-radius: 2px; overflow: hidden;
       pointer-events: none; z-index: 0; opacity: 0; transition: opacity .4s;
     }
     .cert-card-wrap .spin-border::after {
       content: '';
-      position: absolute; top: 50%; left: 50%;
-      width: 200%; height: 200%;
+      position: absolute; top: 50%; left: 50%; width: 200%; height: 200%;
       transform: translate(-50%,-50%) rotate(0deg);
       background: conic-gradient(transparent 0deg, var(--accent) 60deg, transparent 120deg);
       animation: spin-cert 3s linear infinite;
     }
     @keyframes spin-cert { to { transform: translate(-50%,-50%) rotate(360deg); } }
     .cert-card-wrap:hover .spin-border { opacity: 1; }
-    .cert-card-wrap .spin-border-mask {
-      position: absolute; inset: 2px; background: var(--bg); z-index: 1;
-    }
+    .cert-card-wrap .spin-border-mask { position: absolute; inset: 2px; background: var(--bg); z-index: 1; }
 
     .cert-card-inner {
-      position: relative; z-index: 2;
-      background: var(--bg); border: 1px solid var(--border);
-      padding: 40px 36px;
-      display: flex; flex-direction: column; gap: 18px;
+      position: relative; z-index: 2; background: var(--bg); border: 1px solid var(--border);
+      padding: 40px 36px; display: flex; flex-direction: column; gap: 18px;
       transition: background .3s, border-color .4s, transform .3s;
     }
-    .cert-card-wrap:hover .cert-card-inner {
-      background: var(--bg2); border-color: transparent; transform: translateY(-4px);
-    }
+    .cert-card-wrap:hover .cert-card-inner { background: var(--bg2); border-color: transparent; transform: translateY(-4px); }
 
     .cert-icon { width: 46px; height: 46px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
     .cert-icon i { font-size: 1.4rem; color: var(--accent); }
     .cert-issuer { font-family: var(--mono); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
-    .cert-name { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; line-height: 1.2; letter-spacing: -.015em; }
+    .cert-name { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; line-height: 1.2; }
     .cert-id { font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; color: var(--faint); margin-top: -8px; }
     .cert-body { font-size: .88rem; line-height: 1.8; color: var(--mid); flex: 1; }
-    .cert-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 16px; border-top: 1px solid var(--border);
-    }
+    .cert-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border); }
     .cert-date { font-family: var(--mono); font-size: .6rem; color: var(--faint); letter-spacing: .12em; }
     .cert-cta { font-family: var(--mono); font-size: .66rem; color: var(--accent); display: flex; align-items: center; gap: 6px; transition: gap .3s; }
     .cert-card-wrap:hover .cert-cta { gap: 14px; }
 
-    /* CONTACT */
+    /* ── CONTACT ── */
     .contact-section { border-top: 1px solid var(--border); text-align: center; }
     .contact-section .sec-wrap { padding-top: 120px; padding-bottom: 120px; }
-    .contact-headline {
-      font-family: var(--serif);
-      font-size: clamp(4rem, 11vw, 11rem);
-      font-weight: 400; line-height: .88; letter-spacing: -.04em;
-      margin: 20px 0 32px;
-    }
+    .contact-headline { font-family: var(--serif); font-size: clamp(4rem,11vw,11rem); font-weight: 400; line-height: .88; letter-spacing: -.04em; margin: 20px 0 32px; }
     .contact-headline em { font-style: italic; color: var(--accent); }
     .contact-sub { font-size: 1rem; color: var(--mid); max-width: 460px; margin: 0 auto 56px; line-height: 1.8; }
     .contact-sub strong { color: var(--ink); }
     .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
     .contact-link {
-      display: flex; align-items: center; gap: 12px;
-      padding: 16px 28px; border: 1.5px solid var(--border);
-      text-decoration: none; color: var(--ink); font-size: .9rem;
+      display: flex; align-items: center; gap: 12px; padding: 16px 28px;
+      border: 1.5px solid var(--border); text-decoration: none; color: var(--ink); font-size: .9rem;
       transition: border-color .3s, transform .3s, background .3s;
     }
-    .contact-link:hover { border-color: var(--accent); background: rgba(45,91,227,0.05); transform: translateY(-4px); }
+    .contact-link:hover { border-color: var(--accent); background: rgba(45,91,227,.05); transform: translateY(-4px); }
     .contact-link i { font-size: 1.2rem; color: var(--accent); }
-    .contact-email {
-      margin-top: 48px; font-family: var(--mono); font-size: .68rem;
-      letter-spacing: .14em; color: var(--faint);
-    }
+    .contact-email { margin-top: 48px; font-family: var(--mono); font-size: .68rem; letter-spacing: .14em; color: var(--faint); }
     .contact-email a { color: var(--mid); text-decoration: underline; text-underline-offset: 4px; transition: color .2s; }
     .contact-email a:hover { color: var(--accent); }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border); padding: 22px 60px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; }
     footer p { font-family: var(--mono); font-size: .62rem; letter-spacing: .12em; color: var(--faint); }
     .footer-logo { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--faint); text-decoration: none; }
 
-    /* REVEAL */
+    /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .75s ease, transform .75s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
       nav { padding: 18px 24px; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; padding: 120px 24px 64px; gap: 40px; }
-      .hero-img-wrap { max-width: 300px; }
+      .terminal-wrap { max-width: 100%; }
       .scroll-ind { display: none; }
       .sec-wrap { padding: 72px 24px; }
-      .about-layout { grid-template-columns: 1fr; gap: 40px; }
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .orbit-wrap { max-width: 340px; margin: 0 auto; }
       .work-card-inner { grid-template-columns: 48px 1fr; gap: 16px; padding: 28px 24px; }
       .work-cta { display: none; }
       .certs-grid { grid-template-columns: 1fr; }
@@ -498,6 +566,7 @@
 <!-- HERO -->
 <div class="hero-outer">
   <section class="hero">
+    <!-- LEFT: text -->
     <div class="hero-left">
       <p class="hero-tag"><span class="hero-tag-dot"></span>CS Engineer &amp; Full-Stack Developer</p>
       <h1 class="hero-name">Hi I'm<br><em>Sourav</em><br>Singh</h1>
@@ -513,14 +582,27 @@
       </div>
     </div>
 
-    <div class="hero-img-wrap">
-      <div class="hero-glow-border"></div>
-      <div class="hero-img-inner">
-      <img src="me.png" alt="Sourav Singh" class="hero-img">
-      </div>
-      <div class="hero-badge">
-        <div class="badge-l1">SRM IST · 2027</div>
-        <div class="badge-l2">Cloud Computing</div>
+    <!-- RIGHT: animated terminal -->
+    <div class="terminal-wrap">
+      <div class="terminal-glow"></div>
+      <div class="terminal">
+        <div class="term-bar">
+          <div class="term-dot r"></div>
+          <div class="term-dot y"></div>
+          <div class="term-dot g"></div>
+          <div class="term-title">sourav@srmist ~ zsh</div>
+        </div>
+        <div class="term-body" id="termBody">
+          <!-- lines injected by JS -->
+        </div>
+        <div class="term-status">
+          <div class="term-status-left">
+            <div class="status-dot"></div>
+            <span>node v20.11</span>
+            <span class="branch">⎇ main</span>
+          </div>
+          <span>UTF-8</span>
+        </div>
       </div>
     </div>
   </section>
@@ -546,7 +628,7 @@
     <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"><span>Bootstrap</span></div>
     <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"><span>Tailwind CSS</span></div>
     <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
-    <!-- duplicate for seamless loop -->
+    <!-- dupes -->
     <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
     <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
     <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
@@ -573,12 +655,34 @@
         </p>
         <a href="#work" class="about-link reveal">Explore my work →</a>
       </div>
-      <div class="about-img-wrap reveal">
-        <div class="about-glow-border"></div>
-        <div class="about-img-box">
-          <div class="avatar">
-            <svg width="80" height="90" viewBox="0 0 80 90" fill="none"><circle cx="40" cy="30" r="22" fill="rgba(24,19,12,0.14)"/><ellipse cx="40" cy="85" rx="38" ry="22" fill="rgba(24,19,12,0.09)"/></svg>
-          </div>
+
+      <!-- ORBIT widget -->
+      <div class="orbit-wrap reveal">
+        <div class="orbit-pulse"></div>
+
+        <!-- inner ring — 5 nodes -->
+        <div class="orbit-ring orbit-ring-1">
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next" style="opacity:.75"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"></div>
+        </div>
+
+        <!-- outer ring — 6 nodes -->
+        <div class="orbit-ring orbit-ring-2">
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" style="opacity:.5"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"></div>
+        </div>
+
+        <!-- center card -->
+        <div class="orbit-center">
+          <div class="orbit-center-num">11</div>
+          <div class="orbit-center-label">Technologies</div>
         </div>
       </div>
     </div>
@@ -595,7 +699,6 @@
       </div>
       <p class="work-sub">Aimed at creating impactful, scalable products that make a real difference.</p>
     </div>
-
     <div class="work-list reveal">
 
       <a class="work-card-wrap" href="https://devtrace-web-two.vercel.app/" target="_blank">
@@ -605,8 +708,7 @@
           <div>
             <div class="work-meta">
               <span class="work-tag">Developer Tooling · Full Stack</span>
-              <span class="work-sep">·</span>
-              <span class="work-year">2025</span>
+              <span class="work-sep">·</span><span class="work-year">2025</span>
             </div>
             <h3 class="work-title">DevTrace</h3>
             <p class="work-desc">Eliminates context-switching by auto-formatting commits, posting updates to Jira, and providing a unified terminal interface to view and manage tickets — without leaving your workflow.</p>
@@ -622,8 +724,7 @@
           <div>
             <div class="work-meta">
               <span class="work-tag">Machine Learning · Browser-Side</span>
-              <span class="work-sep">·</span>
-              <span class="work-year">2024</span>
+              <span class="work-sep">·</span><span class="work-year">2024</span>
             </div>
             <h3 class="work-title">V-Image</h3>
             <p class="work-desc">Web-based image classification running a convolutional neural network directly in the browser via WebGL acceleration — fast results with zero data leaving the device.</p>
@@ -639,8 +740,7 @@
           <div>
             <div class="work-meta">
               <span class="work-tag">Theory of Computation · UI</span>
-              <span class="work-sep">·</span>
-              <span class="work-year">2024</span>
+              <span class="work-sep">·</span><span class="work-year">2024</span>
             </div>
             <h3 class="work-title">Automata Password</h3>
             <p class="work-desc">A DFA-based password strength checker that analyses passwords in real time using character types, length, entropy, and crack time — with animated state transitions and an interactive interface.</p>
@@ -686,7 +786,7 @@
             <h3 class="cert-name">Certified Fundamentals in Cybersecurity</h3>
           </div>
           <p class="cert-id">5868056056SS</p>
-          <p class="cert-body">Completed NSE 1, NSE 2, and Fundamentals in Cybersecurity — covering threat landscapes, network security principles, and system protection best practices.</p>
+          <p class="cert-body">Completed NSE 1, NSE 2, and Fundamentals in Cybersecurity — covering threat landscapes, network security, and system protection best practices.</p>
           <div class="cert-footer">
             <span class="cert-date">Mar 2026 — Mar 2028</span>
             <span class="cert-cta">View →</span>
@@ -734,46 +834,121 @@
 </footer>
 
 <script>
-  /* ── Custom cursor ── */
-  const cur = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let rx = 0, ry = 0, mx = 0, my = 0;
+/* ── Custom cursor ── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let rx = 0, ry = 0, mx = 0, my = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+});
+(function lerpRing() {
+  rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(lerpRing);
+})();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.width='14px';cur.style.height='14px';ring.style.width='52px';ring.style.height='52px';ring.style.opacity='.8'; });
+  el.addEventListener('mouseleave', () => { cur.style.width='8px';cur.style.height='8px';ring.style.width='38px';ring.style.height='38px';ring.style.opacity='.5'; });
+});
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cur.style.left = mx + 'px';
-    cur.style.top  = my + 'px';
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 65); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Terminal typewriter ── */
+const termBody = document.getElementById('termBody');
+
+const lines = [
+  { type: 'cmd',  prompt: '~', text: 'whoami' },
+  { type: 'out',  color: 'green', text: 'sourav_singh  //  cs_engineer · full_stack' },
+  { type: 'cmd',  prompt: '~', text: 'cat skills.json' },
+  { type: 'out',  color: 'blue',  text: '{ "stack": ["React","Next.js","Node","MongoDB"] }' },
+  { type: 'out',  color: 'blue',  text: '  "extras": ["Git","Tailwind","Express"] }' },
+  { type: 'cmd',  prompt: '~', text: 'ls projects/' },
+  { type: 'out',  color: 'orange',text: 'devtrace/    v-image/    automata-pwd/' },
+  { type: 'cmd',  prompt: '~', text: 'git log --oneline -3' },
+  { type: 'out',  color: '',      text: 'a3f1c2e  feat: add WebGL inference to v-image' },
+  { type: 'out',  color: '',      text: 'b7d9a11  fix: jira sync race condition in devtrace' },
+  { type: 'out',  color: '',      text: 'c2e8f44  chore: DFA entropy scoring for automata-pwd' },
+  { type: 'cmd',  prompt: '~', text: 'echo "open to work"', cursor: true },
+  { type: 'out',  color: 'green', text: 'open to work ✓' },
+];
+
+let lineIndex = 0;
+function renderNextLine() {
+  if (lineIndex >= lines.length) return;
+  const l = lines[lineIndex++];
+  const row = document.createElement('div');
+  row.className = 'term-line';
+
+  if (l.type === 'cmd') {
+    row.innerHTML = `<span class="term-prompt">❯</span><span class="term-cmd">${l.text}${l.cursor ? '<span class="term-cursor"></span>' : ''}</span>`;
+  } else {
+    row.innerHTML = `<span class="term-out ${l.color || ''}">${l.text}</span>`;
+  }
+
+  row.style.opacity = '0';
+  row.style.transform = 'translateY(6px)';
+  row.style.transition = 'opacity .3s ease, transform .3s ease';
+  termBody.appendChild(row);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      row.style.opacity = '1';
+      row.style.transform = 'none';
+    });
   });
 
-  (function lerpRing() {
-    rx += (mx - rx) * 0.13;
-    ry += (my - ry) * 0.13;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(lerpRing);
-  })();
+  // scroll to bottom
+  termBody.scrollTop = termBody.scrollHeight;
 
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cur.style.width = '14px'; cur.style.height = '14px';
-      ring.style.width = '52px'; ring.style.height = '52px'; ring.style.opacity = '.8';
-    });
-    el.addEventListener('mouseleave', () => {
-      cur.style.width = '8px'; cur.style.height = '8px';
-      ring.style.width = '38px'; ring.style.height = '38px'; ring.style.opacity = '.5';
-    });
+  const delay = l.type === 'cmd' ? 700 : 320;
+  setTimeout(renderNextLine, delay);
+}
+
+// start terminal after hero animation
+setTimeout(renderNextLine, 1800);
+
+/* ── Orbit: position nodes correctly using JS ── */
+// We use CSS for the ring rotation + inline transform for initial placement
+// Each node is a child of the rotating ring div. We set transform-origin center of ring.
+// Nodes are positioned at ring center by default (top:50%, left:50%, margin:-24px).
+// We rotate each node's wrapper by angle, translate by radius, then counter-rotate the icon.
+
+function setupOrbitRing(ringEl, nodeCount, radiusPct, duration, reverse) {
+  const nodes = ringEl.querySelectorAll('.orbit-node');
+  nodes.forEach((node, i) => {
+    const angleDeg = (360 / nodeCount) * i;
+    const angleRad = (angleDeg * Math.PI) / 180;
+    // place node relative to center of ring (ring is 100% x 100% of its size)
+    // ring width = radiusPct * orbit-wrap width
+    // node center should be at (ringCX + radius*cos, ringCY + radius*sin)
+    // Since nodes are absolute inside the ring div:
+    // top: 50% + sin(angle)*radius%, left: 50% + cos(angle)*radius%
+    const r = 42; // % of ring size
+    const x = 50 + r * Math.cos(angleRad - Math.PI / 2);
+    const y = 50 + r * Math.sin(angleRad - Math.PI / 2);
+    node.style.left = x + '%';
+    node.style.top  = y + '%';
+    node.style.transform = 'translate(-50%,-50%)';
+
+    // counter-rotate animation
+    const dir = reverse ? 'normal' : 'reverse';
+    node.style.animation = `ring-spin ${duration}s linear infinite ${dir}`;
   });
+}
 
-  /* ── Scroll reveal ── */
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('in'), i * 65);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+window.addEventListener('load', () => {
+  const ring1 = document.querySelector('.orbit-ring-1');
+  const ring2 = document.querySelector('.orbit-ring-2');
+  if (ring1) setupOrbitRing(ring1, 5, 42, 18, false);
+  if (ring2) setupOrbitRing(ring2, 6, 42, 28, true);
+});
 </script>
 </body>
 </html>
