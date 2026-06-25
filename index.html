@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sourav Singh | CS Engineer & Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Sourav.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#certifications">Certificates</a></li>
+    <li><a href="https://drive.google.com/file/d/1fVoHZkWtnnl3JtElvkjiLv7xBr6MQ1Xt/view?usp=sharing" target="_blank" class="nav-cta">Résumé</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-outer">
+  <section class="hero">
+    <!-- LEFT: text -->
+    <div class="hero-left">
+      <p class="hero-tag"><span class="hero-tag-dot"></span>CS Engineer &amp; Full-Stack Developer</p>
+      <h1 class="hero-name">Hi I'm<br><em>Sourav</em><br>Singh</h1>
+      <div class="hero-sub-row">
+        <p class="hero-desc">
+          Building <strong>scalable, dynamic &amp; decentralised</strong> web applications.
+          CS Engineering student at <strong>SRM IST</strong>, specialising in Cloud Computing — graduating 2027.
+        </p>
+        <div class="hero-btns">
+          <a href="https://drive.google.com/file/d/1fVoHZkWtnnl3JtElvkjiLv7xBr6MQ1Xt/view?usp=sharing" target="_blank" class="btn-solid">View Résumé</a>
+          <a href="#work" class="btn-line">See Projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: animated terminal -->
+    <div class="terminal-wrap">
+      <div class="terminal-glow"></div>
+      <div class="terminal">
+        <div class="term-bar">
+          <div class="term-dot r"></div>
+          <div class="term-dot y"></div>
+          <div class="term-dot g"></div>
+          <div class="term-title">sourav@srmist ~ zsh</div>
+        </div>
+        <div class="term-body" id="termBody">
+          <!-- lines injected by JS -->
+        </div>
+        <div class="term-status">
+          <div class="term-status-left">
+            <div class="status-dot"></div>
+            <span>node v20.11</span>
+            <span class="branch">⎇ main</span>
+          </div>
+          <span>UTF-8</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Scroll indicator -->
+<div class="scroll-ind">
+  <span>Scroll</span>
+  <div class="scroll-line"></div>
+</div>
+
+<!-- SKILLS MARQUEE -->
+<div class="marquee-wrap" id="skills">
+  <div class="marquee-track">
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><span>React</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"><span>Next.js</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"><span>Node.js</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" style="opacity:.45"><span>Express</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"><span>MongoDB</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"><span>Bootstrap</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"><span>Tailwind CSS</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
+    <!-- dupes for seamless loop -->
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><span>React</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"><span>Next.js</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"><span>Node.js</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" style="opacity:.45"><span>Express</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"><span>MongoDB</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"><span>Bootstrap</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"><span>Tailwind CSS</span></div>
+    <div class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-wrap">
+    <p class="sec-label reveal">Who Am I?</p>
+    <div class="about-layout">
+      <div>
+        <h2 class="sec-title reveal">I am Sourav Singh →<br>a <em>Full-Stack</em><br>Developer</h2>
+        <p class="about-text reveal" style="margin-top:28px;">
+          Skilled in programming languages including C++, Python, and JavaScript, with hands-on experience in developing
+          web applications using HTML, CSS, React.js, and Node.js. Proficient in using tools and technologies such as
+          Git, GitHub, and MongoDB for version control, collaboration, and database management.
+        </p>
+        <a href="#work" class="about-link reveal">Explore my work →</a>
+      </div>
+
+      <!-- ORBIT widget -->
+      <div class="orbit-wrap reveal">
+        <div class="orbit-pulse"></div>
+
+        <!-- inner ring — 5 nodes -->
+        <div class="orbit-ring orbit-ring-1">
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next" style="opacity:.75"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"></div>
+        </div>
+
+        <!-- outer ring — 6 nodes -->
+        <div class="orbit-ring orbit-ring-2">
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" style="opacity:.5"></div>
+          <div class="orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"></div>
+        </div>
+
+        <!-- center card -->
+        <div class="orbit-center">
+          <div class="orbit-center-label">My-Tech Stack</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<div class="work-bg" id="work">
+  <div class="sec-wrap">
+    <div class="work-header reveal">
+      <div>
+        <p class="sec-label">Selected Work</p>
+        <h2 class="sec-title" style="margin-top:14px;"><em>My Projects</em></h2>
+      </div>
+      <p class="work-sub">Aimed at creating impactful, scalable products that make a real difference.</p>
+    </div>
+    <div class="work-list reveal">
+
+      <a class="work-card-wrap" href="https://devtrace-web-two.vercel.app/" target="_blank">
+        <div class="spin-border"><div class="spin-border-mask"></div></div>
+        <div class="work-card-inner">
+          <span class="work-num">01</span>
+          <div>
+            <div class="work-meta">
+              <span class="work-tag">Developer Tooling · Full Stack</span>
+              <span class="work-sep">·</span><span class="work-year">2025</span>
+            </div>
+            <h3 class="work-title">DevTrace</h3>
+            <p class="work-desc">Eliminates context-switching by auto-formatting commits, posting updates to Jira, and providing a unified terminal interface to view and manage tickets — without leaving your workflow.</p>
+          </div>
+          <span class="work-cta">Read More →</span>
+        </div>
+      </a>
+
+      <a class="work-card-wrap" href="https://img-classifieer.vercel.app/" target="_blank">
+        <div class="spin-border"><div class="spin-border-mask"></div></div>
+        <div class="work-card-inner">
+          <span class="work-num">02</span>
+          <div>
+            <div class="work-meta">
+              <span class="work-tag">Machine Learning · Browser-Side</span>
+              <span class="work-sep">·</span><span class="work-year">2026</span>
+            </div>
+            <h3 class="work-title">V-Image</h3>
+            <p class="work-desc">Web-based image classification running a convolutional neural network directly in the browser via WebGL acceleration — fast results with zero data leaving the device.</p>
+          </div>
+          <span class="work-cta">Read More →</span>
+        </div>
+      </a>
+
+      <a class="work-card-wrap" href="https://automata-passkey.vercel.app/" target="_blank">
+        <div class="spin-border"><div class="spin-border-mask"></div></div>
+        <div class="work-card-inner">
+          <span class="work-num">03</span>
+          <div>
+            <div class="work-meta">
+              <span class="work-tag">Theory of Computation · UI</span>
+              <span class="work-sep">·</span><span class="work-year">2024</span>
+            </div>
+            <h3 class="work-title">Automata Password</h3>
+            <p class="work-desc">A DFA-based password strength checker that analyses passwords in real time using character types, length, entropy, and crack time — with animated state transitions and an interactive interface.</p>
+          </div>
+          <span class="work-cta">Read More →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- CERTS -->
+<section class="cert-section" id="certifications">
+  <div class="sec-wrap">
+    <p class="sec-label reveal">Credentials</p>
+    <h2 class="sec-title reveal" style="margin-top:14px;">My <em>Certifications</em></h2>
+    <div class="certs-grid reveal">
+
+      <a class="cert-card-wrap" href="https://drive.google.com/file/d/1Cu_jJBQv3JB1bXksfBlZxg8Yrlf2H8VG/view" target="_blank">
+        <div class="spin-border"><div class="spin-border-mask" style="background:var(--bg)"></div></div>
+        <div class="cert-card-inner">
+          <div class="cert-icon"><i class='bx bxs-brain'></i></div>
+          <div>
+            <p class="cert-issuer">IIT Kharagpur · NPTEL</p>
+            <h3 class="cert-name">Natural Language Processing</h3>
+          </div>
+          <p class="cert-id">NPTEL26CS45S1055100482</p>
+          <p class="cert-body">12-week Elite certification from IIT Kharagpur. Consolidated score of 71% across online assignments and a proctored examination.</p>
+          <div class="cert-footer">
+            <span class="cert-date">Apr 2026</span>
+            <span class="cert-cta">View →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cert-card-wrap" href="https://drive.google.com/file/d/1FNYYk2R03UWduPqB8_5vdKSJT_AOgrHB/view" target="_blank">
+        <div class="spin-border"><div class="spin-border-mask" style="background:var(--bg)"></div></div>
+        <div class="cert-card-inner">
+          <div class="cert-icon"><i class='bx bxs-shield-alt-2'></i></div>
+          <div>
+            <p class="cert-issuer">Fortinet</p>
+            <h3 class="cert-name">Certified Fundamentals in Cybersecurity</h3>
+          </div>
+          <p class="cert-id">5868056056SS</p>
+          <p class="cert-body">Completed NSE 1, NSE 2, and Fundamentals in Cybersecurity — covering threat landscapes, network security, and system protection best practices.</p>
+          <div class="cert-footer">
+            <span class="cert-date">Mar 2026 — Mar 2028</span>
+            <span class="cert-cta">View →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="sec-wrap">
+    <p class="sec-label reveal" style="justify-content:center;">Let's chat?</p>
+    <h2 class="contact-headline reveal">Let's<br><em>Connect</em></h2>
+    <p class="contact-sub reveal">
+      <strong>I'm always open to a good conversation.</strong><br>
+      Collaborations, opportunities, or just saying hi — feel free to reach out.
+    </p>
+    <div class="contact-links reveal">
+      <a class="contact-link" href="https://www.linkedin.com/in/usersourav" target="_blank">
+        <i class='bx bxl-linkedin-square'></i> Connect on LinkedIn
+      </a>
+      <a class="contact-link" href="mailto:ss6015@srmist.edu.in">
+        <i class='bx bxs-envelope'></i> Send an Email
+      </a>
+      <a class="contact-link" href="https://github.com/Usersourav" target="_blank">
+        <i class='bx bxl-github'></i> GitHub
+      </a>
+      <a class="contact-link btn-solid" href="https://drive.google.com/file/d/1fVoHZkWtnnl3JtElvkjiLv7xBr6MQ1Xt/view?usp=sharing" target="_blank" style="border:none;">
+        <i class='bx bxs-file-pdf'></i> Download Résumé
+      </a>
+    </div>
+    <p class="contact-email reveal">
+      Not so social? Write to me at <a href="mailto:ss6015@srmist.edu.in">ss6015@srmist.edu.in</a>
+    </p>
+  </div>
+</div>
+
+<footer>
+  <a href="#" class="footer-logo">Sourav.</a>
+  <p>©2025 — CS Engineer · SRM IST · 2027</p>
+  <p>@usersourav</p>
+</footer>
+
+<script>
+/* ── Custom cursor ── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let rx = 0, ry = 0, mx = 0, my = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+});
+(function lerpRing() {
+  rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(lerpRing);
+})();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.width='14px';cur.style.height='14px';ring.style.width='52px';ring.style.height='52px';ring.style.opacity='.8'; });
+  el.addEventListener('mouseleave', () => { cur.style.width='8px';cur.style.height='8px';ring.style.width='38px';ring.style.height='38px';ring.style.opacity='.5'; });
+});
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 65); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Terminal typewriter ── */
+const termBody = document.getElementById('termBody');
+
+const lines = [
+  { type: 'cmd',  prompt: '~', text: 'whoami' },
+  { type: 'out',  color: 'green', text: 'sourav_singh  //  cs_engineer · full_stack' },
+  { type: 'cmd',  prompt: '~', text: 'cat skills.json' },
+  { type: 'out',  color: 'blue',  text: '{ "stack": ["React","Next.js","Node","MongoDB"] }' },
+  { type: 'out',  color: 'blue',  text: '  "extras": ["Git","Tailwind","Express"] }' },
+  { type: 'cmd',  prompt: '~', text: 'ls projects/' },
+  { type: 'out',  color: 'orange',text: 'devtrace/    v-image/    automata-pwd/' },
+  { type: 'cmd',  prompt: '~', text: 'git log --oneline -3' },
+  { type: 'out',  color: '',      text: 'a3f1c2e  feat: add WebGL inference to v-image' },
+  { type: 'out',  color: '',      text: 'b7d9a11  fix: jira sync race condition in devtrace' },
+  { type: 'out',  color: '',      text: 'c2e8f44  chore: DFA entropy scoring for automata-pwd' },
+  { type: 'cmd',  prompt: '~', text: 'echo "open to work"', cursor: true },
+  { type: 'out',  color: 'green', text: 'open to work ✓' },
+];
+
+let lineIndex = 0;
+function renderNextLine() {
+  if (lineIndex >= lines.length) return;
+  const l = lines[lineIndex++];
+  const row = document.createElement('div');
+  row.className = 'term-line';
+
+  if (l.type === 'cmd') {
+    row.innerHTML = `<span class="term-prompt">❯</span><span class="term-cmd">${l.text}${l.cursor ? '<span class="term-cursor"></span>' : ''}</span>`;
+  } else {
+    row.innerHTML = `<span class="term-out ${l.color || ''}">${l.text}</span>`;
+  }
+
+  row.style.opacity = '0';
+  row.style.transform = 'translateY(6px)';
+  row.style.transition = 'opacity .3s ease, transform .3s ease';
+  termBody.appendChild(row);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      row.style.opacity = '1';
+      row.style.transform = 'none';
+    });
+  });
+
+  termBody.scrollTop = termBody.scrollHeight;
+
+  const delay = l.type === 'cmd' ? 700 : 320;
+  setTimeout(renderNextLine, delay);
+}
+
+setTimeout(renderNextLine, 1800);
+
+/* ── Orbit: position nodes via JS ── */
+function setupOrbitRing(ringEl, nodeCount, radiusPct, duration, reverse) {
+  const nodes = ringEl.querySelectorAll('.orbit-node');
+  nodes.forEach((node, i) => {
+    const angleDeg = (360 / nodeCount) * i;
+    const angleRad = (angleDeg * Math.PI) / 180;
+    const r = 42;
+    const x = 50 + r * Math.cos(angleRad - Math.PI / 2);
+    const y = 50 + r * Math.sin(angleRad - Math.PI / 2);
+    node.style.left = x + '%';
+    node.style.top  = y + '%';
+    node.style.transform = 'translate(-50%,-50%)';
+    const dir = reverse ? 'normal' : 'reverse';
+    node.style.animation = `ring-spin ${duration}s linear infinite ${dir}`;
+  });
+}
+
+window.addEventListener('load', () => {
+  const ring1 = document.querySelector('.orbit-ring-1');
+  const ring2 = document.querySelector('.orbit-ring-2');
+  if (ring1) setupOrbitRing(ring1, 5, 42, 18, false);
+  if (ring2) setupOrbitRing(ring2, 6, 42, 28, true);
+});
+</script>
+</body>
+</html>
